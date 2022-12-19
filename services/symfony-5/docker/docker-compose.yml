@@ -1,9 +1,9 @@
 version: '3'
 
 services:
-    symfony5:
-        container_name: '${APP_NAME_INTERNAL}_symfony5'
-        image: 'wexample/symfony5:latest'
+    symfony_5:
+        container_name: '${APP_NAME_INTERNAL}_symfony_5'
+        image: 'wexample/symfony-5:latest'
         stdin_open: true
         tty: true
         restart: always

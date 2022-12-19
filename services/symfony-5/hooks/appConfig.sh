@@ -9,4 +9,6 @@ symfony5AppConfig() {
   wex app::config/bindFiles -s=php -e=ini
   # apache.conf
   wex app::config/bindFiles -s=apache -e=conf
+  # when using app/go
+  wex app::config/setValue -k=MAIN_CONTAINER_NAME -v="symfony-5"
 }
