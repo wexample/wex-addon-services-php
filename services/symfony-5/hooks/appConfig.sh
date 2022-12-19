@@ -3,7 +3,7 @@
 symfony5AppConfig() {
   _wexLog "Symfony 5 : configuration"
   printf "\n" >> "${WEX_FILEPATH_REL_CONFIG_BUILD}"
-  wex app::config/addTitle -t="Symfony 5"
+  wex app::config/addTitle -t="Symfony 5\n"
 
   # php.ini
   wex app::config/bindFiles -s=php -e=ini
