@@ -16,5 +16,5 @@ phpmyadminAppConfig() {
     DOMAIN=pma.${APP_NAME}.wex
   fi
 
-  wex app::config/setValue -f=.wex/tmp/config -k=DOMAIN_PMA -v="${DOMAIN}"
+  wex app::config/setValue -k=DOMAIN_PMA -v="${DOMAIN}"
 }
