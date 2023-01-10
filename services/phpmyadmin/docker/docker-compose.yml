@@ -11,7 +11,7 @@ services:
           - VIRTUAL_HOST=${DOMAIN_PMA}
         restart: always
         networks:
-          - tmp_wex_net
+          - wex_net
         volumes:
             - ${CONF_PHPMYADMIN_PHP_INI}:/etc/php/7.1/apache2/conf.d/99-wex.ini
             - ${CONF_PHPMYADMIN_PHP_INI}:/etc/php/7.2/apache2/conf.d/99-wex.ini

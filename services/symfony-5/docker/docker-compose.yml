@@ -33,5 +33,5 @@ services:
             # Cron management
             - ${APP_PATH_ROOT}.wex/cron/${APP_ENV}:/var/default.cron
         networks:
-            - tmp_wex_net
+            - wex_net
 
