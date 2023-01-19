@@ -2,7 +2,7 @@
 
 php8AppConfig() {
   wex app::config/addTitle -t=Web
-  wex app::config/setValue -k=MAIN_CONTAINER_NAME -v=web
+  wex app::config/setValue -k=MAIN_CONTAINER_NAME -v=php_8
   wex app::config/setValue -k=PROJECT_DIR -v=project
 
   # php.ini
