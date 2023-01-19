@@ -1,3 +1,3 @@
         extends:
-            file: ${WEX_COMPOSE_YML_WEB}
+            file: ${WEX_COMPOSE_YML_PHP8}
             service: symfony_5

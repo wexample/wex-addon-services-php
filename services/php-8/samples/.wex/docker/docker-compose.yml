@@ -1,3 +1,3 @@
         extends:
-            file: ${WEX_COMPOSE_YML_WEB}
-            service: web
+            file: ${WEX_COMPOSE_YML_PHP_8}
+            service: php_8
