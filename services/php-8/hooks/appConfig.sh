@@ -12,7 +12,7 @@ php8AppConfig() {
 
   # Create ini file.
   local INI="${WEX_DIR_APP_TMP}php.env.ini"
-  local APP_ENV=$(wex app/env)
+  local APP_ENV=$(wex app::app/env)
 
   sudo -u "${WEX_RUNNER_USERNAME}" echo -e "\n\n\n[site]" >> "${INI}"
   _php8AppConfigSetValue APP_ENV "${APP_ENV}"
@@ -21,7 +21,7 @@ php8AppConfig() {
     . "${WEX_FILEPATH_REL_CONFIG}"
 
     sudo -u "${WEX_RUNNER_USERNAME}" echo -e "\n\n\n[mysql]" >> "${INI}"
-    local DEFAULT_HOST="${NAME}_$(wex app/env)_mysql";
+    local DEFAULT_HOST="${NAME}_$(wex app::app/env)_mysql";
     local DEFAULT_PASSWORD='thisIsAReallyNotSecurePassword!'
 
     _php8AppConfigSetValue "MYSQL_DB_HOST" "${MYSQL_DB_HOST:-${DEFAULT_HOST}}"
