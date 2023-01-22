@@ -7,7 +7,7 @@ phpmyadminAppConfig() {
 
   wex app::config/bindFiles -s=php -e=ini
 
-  _wexAppGoTo && . "${WEX_FILEPATH_REL_CONFIG}"
+  . "${WEX_FILEPATH_REL_CONFIG}"
 
   local DOMAIN
   DOMAIN=$(eval 'echo ${'"${APP_ENV^^}"'_DOMAIN_PMA}')

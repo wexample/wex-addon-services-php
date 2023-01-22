@@ -1,4 +1,4 @@
-FROM wexample/php8-1:latest
+FROM wexample/php8-2:latest
 
 LABEL authors="wexample <contact@wexample.com>"
 
