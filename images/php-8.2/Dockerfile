@@ -2,7 +2,7 @@ FROM wexample/ubuntu-22.04:latest
 
 LABEL authors="wexample <contact@wexample.com>"
 
-COPY ./project/addons/services-php/images/php-8.2/entrypoint.sh /docker-entrypoint-php8.sh
+COPY ./addons/services-php/images/php-8.2/entrypoint.sh /docker-entrypoint-php8.sh
 
 RUN apt-get update -yq && \
   apt-get install \
