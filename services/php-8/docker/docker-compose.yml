@@ -25,3 +25,4 @@ services:
         extends:
             file: ${WEX_COMPOSE_YML_DEFAULT}
             service: default
+        user: ${APP_USER_UID}
