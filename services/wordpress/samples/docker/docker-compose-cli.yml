@@ -1,0 +1,7 @@
+        # We use this container
+        extends:
+          file: ${WEX_COMPOSE_YML_WORDPRESS}
+          service: cli
+        depends_on:
+          - ${APP_NAME}_wordpress
+          - ${APP_NAME}_mysql_8

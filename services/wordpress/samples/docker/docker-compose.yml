@@ -1,0 +1,5 @@
+        extends:
+          file: ${WEX_COMPOSE_YML_WORDPRESS}
+          service: wordpress
+        depends_on:
+          - ${APP_NAME}_mysql_8
