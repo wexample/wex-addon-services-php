@@ -21,15 +21,12 @@ services:
         extends:
             file: ${WEX_COMPOSE_YML_DEFAULT}
             service: default
+        user: ${APP_USER_UID}
 
     # From : https://stackoverflow.com/a/51001043
     cli:
         container_name: '${APP_NAME_INTERNAL}_cli'
         image: wordpress:cli-2.7.1-php8.2
-        # This is required to run cli with the same
-        # user-id as wordpress. This way there are no permission problems
-        # when running the cli
-        user: xfs
         environment:
             # Database
             - WORDPRESS_DB_HOST=${MYSQL_DB_HOST}
@@ -40,6 +37,8 @@ services:
         volumes:
             # Wordpress
             - ${APP_PATH_ROOT}:/var/www/html
+            - ${APP_PATH_WEX}wp-cli/:/.wp-cli/
         extends:
             file: ${WEX_COMPOSE_YML_DEFAULT}
             service: default
+        user: ${APP_USER_UID}
