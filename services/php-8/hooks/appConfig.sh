@@ -22,7 +22,7 @@ php8AppConfig() {
 
     sudo -u "${WEX_RUNNER_USERNAME}" echo -e "\n\n\n[mysql]" >> "${INI}"
     local DEFAULT_HOST="${NAME}_$(wex app::app/env)_mysql";
-    local DEFAULT_PASSWORD='thisIsAReallyNotSecurePassword!'
+    local DEFAULT_PASSWORD=${WEX_DEFAULT_INSECURE_PASSWORD}
 
     _php8AppConfigSetValue "MYSQL_DB_HOST" "${MYSQL_DB_HOST:-${DEFAULT_HOST}}"
     _php8AppConfigSetValue "MYSQL_DB_PORT" "${MYSQL_DB_PORT:-3306}"
