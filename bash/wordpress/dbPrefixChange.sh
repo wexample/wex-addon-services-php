@@ -47,7 +47,7 @@ wordpressDbPrefixChange() {
   _wexLog "Updating configuration files"
 
   wex app::config/setValue -k=WP_DB_TABLE_PREFIX -v="${NEW_PREFIX}"
-  wex app::config/setValue -k=WP_DB_TABLE_PREFIX -v="${NEW_PREFIX}" -b
+  wex app::config/setValue -b -k=WP_DB_TABLE_PREFIX -v="${NEW_PREFIX}"
 
   wex config/setValue -f=wp-config.php -s="=" -k="\$table_prefix" -v="'${NEW_PREFIX}';"
 }

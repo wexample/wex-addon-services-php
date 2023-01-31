@@ -1,10 +1,6 @@
 #!/usr/bin/env bash
 
 php8AppConfig() {
-  wex app::config/addTitle -t=Web
-  wex app::config/setValue -k=MAIN_CONTAINER_NAME -v=php_8
-  wex app::config/setValue -k=PROJECT_DIR -v=project
-
   # php.ini
   wex app::config/bindFiles -s=php -e=ini
   # apache.conf
