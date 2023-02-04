@@ -1,0 +1,5 @@
+        extends:
+            file: ${WEX_COMPOSE_YML_LARAVEL_5}
+            service: laravel_5
+        depends_on:
+          - ${APP_NAME}_mysql
