@@ -1,21 +1,9 @@
-FROM wexample/ubuntu-22.04:latest
-
-LABEL authors="wexample <contact@wexample.com>"
+FROM wexample/php-common:latest
 
 COPY ./addons/services-php/images/php-8.2/entrypoint.sh /docker-entrypoint-php8.sh
 
 RUN apt-get update -yq && \
-  apt-get install \
-  software-properties-common -yqq && \
-  add-apt-repository ppa:ondrej/php -y && \
-  apt-get update -yq && \
-  apt-get install \
-  composer \
-  curl \
-  libapache2-mod-php \
-  memcached \
-  mysql-client \
-  nano \
+  apt-get install -yq \
   php8.2 \
   php8.2-curl \
   php8.2-fpm \
@@ -28,19 +16,7 @@ RUN apt-get update -yq && \
   php8.2-xml \
   php8.2-zip \
   php8.2-intl \
-  sendmail \
-  unzip \
-  zip \
-  -yqq \
-  && a2enmod proxy_fcgi setenvif \
-  && a2enconf php8.2-fpm \
   && chmod +x /docker-entrypoint-php8.sh \
   && rm -rf /var/lib/apt/lists/*
-
-# Install apache, might be replaced by php FPM.
-RUN apt-get update -yqq && apt-get install apache2 -yqq && \
-    sed -i "\$aServerName wexWebServer" /etc/apache2/apache2.conf && \
-    usermod -u 1000 www-data && \
-    a2enmod expires headers rewrite ssl
 
 ENTRYPOINT ["/docker-entrypoint-php8.sh"]
