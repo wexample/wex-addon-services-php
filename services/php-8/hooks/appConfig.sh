@@ -10,13 +10,13 @@ php8AppConfig() {
   local INI="${WEX_DIR_APP_TMP}php.env.ini"
   local APP_ENV=$(wex app::app/env)
 
-  sudo -u "${WEX_RUNNER_USERNAME}" echo -e "\n\n\n[site]" >> "${INI}"
+  echo -e "\n\n\n[site]" >> "${INI}"
   _php8AppConfigSetValue APP_ENV "${APP_ENV}"
 
   if [ "$(wex app::service/user -s=mysql)" = "true" ] || [ "$(wex app::service/user -s="mysql-8")" = "true" ] || [ "$(wex app::service/user -s="maria-10")" = "true" ];then
     . "${WEX_FILEPATH_REL_CONFIG}"
 
-    sudo -u "${WEX_RUNNER_USERNAME}" echo -e "\n\n\n[mysql]" >> "${INI}"
+    echo -e "\n\n\n[mysql]" >> "${INI}"
     local DEFAULT_HOST="${NAME}_$(wex app::app/env)_mysql";
     local DEFAULT_PASSWORD=${WEX_DEFAULT_INSECURE_PASSWORD}
 
