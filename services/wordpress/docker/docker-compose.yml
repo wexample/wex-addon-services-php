@@ -21,7 +21,6 @@ services:
         extends:
             file: ${WEX_COMPOSE_YML_DEFAULT}
             service: default
-        user: ${APP_USER_UID}
 
     # From : https://stackoverflow.com/a/51001043
     cli:
@@ -41,4 +40,3 @@ services:
         extends:
             file: ${WEX_COMPOSE_YML_DEFAULT}
             service: default
-        user: ${APP_USER_UID}
