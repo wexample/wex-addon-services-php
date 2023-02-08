@@ -8,6 +8,5 @@ php8AppInit() {
     cp "${SERVICE_DIR}samples/index.php" .
   fi
 
-  wex app::config/setValue -k=MAIN_CONTAINER_NAME -v=php_8
-  wex app::config/setValue -k=PROJECT_DIR -v=project
+  wex app::config/setValue -b -k=MAIN_CONTAINER_NAME -v=php_8
 }
