@@ -6,4 +6,4 @@ services:
         image: 'wexample/symfony-5:latest'
         extends:
             file: ${WEX_COMPOSE_YML_PHP_8}
-            service: php-8
+            service: php_8
