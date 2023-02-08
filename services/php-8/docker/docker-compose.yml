@@ -11,7 +11,7 @@ services:
             # Site folder
             - ${APP_PATH_ROOT}:/var/www/html
             # Security ! Hide and .wex data containing passwords and databases !
-            - /dev/null:/var/www/html/.wex
+            - /var/www/html/.wex
             # Apache
             - ${CONF_WEB_APACHE_CONF}:/etc/apache2/sites-available/000-default.conf
             - ${CONF_MPM_PREFORK_APACHE_CONF}:/etc/apache2/mods-available/mpm_prefork.conf

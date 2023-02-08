@@ -19,7 +19,7 @@ services:
             # Wordpress
             - ${APP_PATH_ROOT}:/var/www/html
             # Security ! Hide and .wex data containing passwords and databases !
-            - /dev/null:/var/www/html/.wex
+            - /var/www/html/.wex
         extends:
             file: ${WEX_COMPOSE_YML_DEFAULT}
             service: default
@@ -39,7 +39,7 @@ services:
             # Wordpress
             - ${APP_PATH_ROOT}:/var/www/html
             # Security ! Hide and .wex data containing passwords and databases !
-            - /dev/null:/var/www/html/.wex
+            - /var/www/html/.wex
             - ${APP_PATH_WEX}wp-cli/:/.wp-cli/
         extends:
             file: ${WEX_COMPOSE_YML_DEFAULT}
