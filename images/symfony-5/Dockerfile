@@ -12,7 +12,7 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
   && apt-get install -yq \
   nodejs \
   npm \
-  php8.1-bcmath \
+  php8.2-bcmath \
   yarn \
   && a2enmod alias proxy_fcgi
 
