@@ -2,6 +2,13 @@ FROM wexample/php-common:latest
 
 COPY ./addons/services-php/images/php-8.2/entrypoint.sh /docker-entrypoint-php8.sh
 
+# The image php-common comes with libapache2-mod-php which makes Apache uses the
+# prefork model. Since we use php-fpm, we switch to the more efficient 'event'
+RUN apt-get purge -yq libapache2-mod-php && \
+  apt-get autoremove -yq --purge && \
+  a2dismod mpm_prefork && \
+  a2enmod mpm_event
+
 RUN apt-get update -yq && \
   apt-get install -yq \
   php8.2 \
