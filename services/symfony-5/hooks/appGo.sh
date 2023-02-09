@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
 symfony5AppGo() {
-  wex service/exec -s=php-8 -sf -c=appGo -a="${1}"
+  local CONTAINER_NAME="${1}"
+
+  if [ "${CONTAINER_NAME}" == "symfony_5" ];then
+    wex service/exec -s=php-8 -sf -c=appGo -a="php_8"
+  fi
 }
