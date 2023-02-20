@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 phpmyadminAppConfig() {
-  wex app::config/bindFiles -s=php -e=ini
+  wex-exec app::config/bindFiles -s=php -e=ini
 
   . "${WEX_FILEPATH_REL_CONFIG}"
 
@@ -16,5 +16,5 @@ phpmyadminAppConfig() {
     fi
   fi
 
-  wex app::config/setValue -k=DOMAIN_PMA -v="${DOMAIN}"
+  wex-exec app::config/setValue -k=DOMAIN_PMA -v="${DOMAIN}"
 }

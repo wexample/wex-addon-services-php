@@ -9,5 +9,5 @@ laravel5AppBuild() {
   fi;
 
   # Assets.
-  wex site/exec -l -c="npm run ${ENV_NAME}"
+  wex-exec site/exec -l -c="npm run ${ENV_NAME}"
 }

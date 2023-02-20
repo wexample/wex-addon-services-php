@@ -20,7 +20,7 @@ wordpressUrlChange() {
   local OLD_URL
   if [ "${OLD_URL}" = "" ]; then
     # Change database records.
-    OLD_URL=$(wex db/exec -c="SELECT option_value FROM ${WP_DB_TABLE_PREFIX}options WHERE option_name = \"siteurl\"")
+    OLD_URL=$(wex-exec db/exec -c="SELECT option_value FROM ${WP_DB_TABLE_PREFIX}options WHERE option_name = \"siteurl\"")
     OLD_URL="$(echo "$OLD_URL" | tr -d '\r\n')"
   fi
 
@@ -34,5 +34,5 @@ wordpressUrlChange() {
 
   _wexLog "Search / Replace ${OLD_URL} by ${NEW_URL}"
 
-  wex app/exec -n=cli -c="wp search-replace '${OLD_URL}' '${NEW_URL}' --skip-columns=guid --all-tables"
+  wex-exec app/exec -n=cli -c="wp search-replace '${OLD_URL}' '${NEW_URL}' --skip-columns=guid --all-tables"
 }

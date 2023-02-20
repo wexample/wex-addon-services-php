@@ -2,22 +2,22 @@
 
 php8AppConfig() {
   # php.ini
-  wex app::config/bindFiles -s=php -e=ini
+  wex-exec app::config/bindFiles -s=php -e=ini
   # apache.conf
-  wex app::config/bindFiles -s=apache -e=conf
+  wex-exec app::config/bindFiles -s=apache -e=conf
 
   # Create ini file.
   local INI="${WEX_DIR_APP_TMP}php.env.ini"
-  local APP_ENV=$(wex app::app/env)
+  local APP_ENV=$(wex-exec app::app/env)
 
   echo -e "\n\n\n[site]" >> "${INI}"
   _php8AppConfigSetValue APP_ENV "${APP_ENV}"
 
-  if [ "$(wex app::service/user -s=mysql)" = "true" ] || [ "$(wex app::service/user -s="mysql-8")" = "true" ] || [ "$(wex app::service/user -s="maria-10")" = "true" ];then
+  if [ "$(wex-exec app::service/user -s=mysql)" = "true" ] || [ "$(wex-exec app::service/user -s="mysql-8")" = "true" ] || [ "$(wex-exec app::service/user -s="maria-10")" = "true" ];then
     . "${WEX_FILEPATH_REL_CONFIG}"
 
     echo -e "\n\n\n[mysql]" >> "${INI}"
-    local DEFAULT_HOST="${NAME}_$(wex app::app/env)_mysql";
+    local DEFAULT_HOST="${NAME}_$(wex-exec app::app/env)_mysql";
     local DEFAULT_PASSWORD=${WEX_DEFAULT_INSECURE_PASSWORD}
 
     _php8AppConfigSetValue "MYSQL_DB_HOST" "${MYSQL_DB_HOST:-${DEFAULT_HOST}}"
@@ -34,5 +34,5 @@ _php8AppConfigSetValue() {
   local VALUE="${2}"
 
   _wexLog "Setting value for ${KEY} to ${VALUE}"
-  wex default::config/setValue -s=" = " -k="${KEY}" -v="${VALUE}" -f="${INI}"
+  wex-exec default::config/setValue -s=" = " -k="${KEY}" -v="${VALUE}" -f="${INI}"
 }
