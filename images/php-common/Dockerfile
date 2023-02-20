@@ -8,9 +8,9 @@ RUN apt-get update -yq && \
   add-apt-repository ppa:ondrej/php -y && \
   apt-get update -yq && \
   apt-get install \
+  apache2 \
   composer \
   curl \
-  libapache2-mod-php \
   memcached \
   mysql-client \
   nano \
