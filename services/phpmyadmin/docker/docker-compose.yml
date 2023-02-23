@@ -6,6 +6,7 @@ services:
           - LETSENCRYPT_EMAIL=${EMAIL}
           - LETSENCRYPT_HOST=${DOMAIN_PMA}
           - PMA_HOST=${APP_NAME_INTERNAL}_${DB_CONTAINER}
+          - PMA_PORT=${MYSQL_DB_PORT}
           - VIRTUAL_HOST=${DOMAIN_PMA}
         extends:
             file: ${WEX_COMPOSE_YML_DEFAULT}
