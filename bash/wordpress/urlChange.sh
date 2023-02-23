@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 wordpressUrlChangeArgs() {
+  # shellcheck disable=SC2034
   _ARGUMENTS=(
     'new_url n "New url with trailing slash (ex: http://wexample.com/) " false'
     'old_url o "Old url with trailing slash (ex: http://wexample.com/) " false'

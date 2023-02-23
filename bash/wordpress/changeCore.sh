@@ -2,6 +2,7 @@
 
 wordpressChangeCoreArgs() {
   _DESCRIPTION="Replace WP core with another version, useful for downgrading. Let user to update database from admin."
+  # shellcheck disable=SC2034
   _ARGUMENTS=(
     'version v "Wordpress destination version number (ex: 4.9.5)" true'
   )

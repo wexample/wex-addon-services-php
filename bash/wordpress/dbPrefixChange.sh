@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 wordpressDbPrefixChangeArgs() {
+  # shellcheck disable=SC2034
   _ARGUMENTS=(
     'old_prefix o "Old prefix" false'
     'new_prefix n "New prefix" true'
