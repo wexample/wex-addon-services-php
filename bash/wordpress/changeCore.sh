@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 wordpressChangeCoreArgs() {
+  # shellcheck disable=SC2034
   _DESCRIPTION="Replace WP core with another version, useful for downgrading. Let user to update database from admin."
   # shellcheck disable=SC2034
   _ARGUMENTS=(

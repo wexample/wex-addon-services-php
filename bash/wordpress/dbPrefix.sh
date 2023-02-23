@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 wordpressDbPrefixArgs() {
+  # shellcheck disable=SC2034
   _DESCRIPTION="Find database tables prefix"
 }
 
