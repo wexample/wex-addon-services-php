@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 wordpressUrlChangeArgs() {
+  _DESCRIPTION="Change wordpress URL in database"
   # shellcheck disable=SC2034
   _ARGUMENTS=(
     'new_url n "New url with trailing slash (ex: http://wexample.com/) " false'
