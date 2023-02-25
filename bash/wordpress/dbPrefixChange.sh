@@ -16,14 +16,13 @@ wordpressDbPrefixChange() {
     OLD_PREFIX=${WP_DB_TABLE_PREFIX}
   fi
 
-  local TABLES=($(wex-exec db/exec -c="SHOW TABLES"));
+  local TABLES=($(wex-exec db/exec -c="SHOW TABLES"))
   local OLD_PREFIX_LENGTH=${#OLD_PREFIX}
   local COUNT=0
 
-  for TABLE in ${TABLES[@]}
-  do
+  for TABLE in ${TABLES[@]}; do
     # Double [[]] is required for advanced comparison.
-    if [[ "${TABLE}" != Tables_in_* ]];then
+    if [[ "${TABLE}" != Tables_in_* ]]; then
       TABLE="$(echo "${TABLE}" | tr -d '\r\n')"
       wex-exec prompt::prompt/progress -nl -m=${#TABLES[@]} -p=${COUNT} -s="Renaming table ${TABLE}"
 
@@ -37,12 +36,11 @@ wordpressDbPrefixChange() {
   local NAMES=($(wex-exec db/exec -c="SELECT meta_key FROM ${NEW_PREFIX}usermeta WHERE meta_key LIKE \"${OLD_PREFIX}%\""))
   local COUNT=0
 
-  for NAME in ${NAMES[@]}
-  do
+  for NAME in ${NAMES[@]}; do
     NAME="$(echo "${NAME}" | tr -d '\r\n')"
     local QUERY="UPDATE ${NEW_PREFIX}usermeta SET meta_key = \"${NAME:${OLD_PREFIX_LENGTH}}\" WHERE umeta_id = \"${IDS[${COUNT}]}\""
     wex-exec db/exec -vv -c="${QUERY}"
-    (( COUNT++ ))
+    ((COUNT++))
   done
 
   _wexLog "Updating configuration files"

@@ -8,10 +8,10 @@ wordpressDbPrefixArgs() {
 wordpressDbPrefix() {
   _wexAppGoTo . && . "${WEX_FILEPATH_REL_CONFIG_BUILD}"
 
-  if [ "${WP_DB_TABLE_PREFIX}" ];then
+  if [ "${WP_DB_TABLE_PREFIX}" ]; then
     echo "${WP_DB_TABLE_PREFIX}"
     return
-  fi;
+  fi
 
   echo 'wp_'
 }

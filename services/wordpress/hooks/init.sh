@@ -2,7 +2,7 @@
 
 wordpressInit() {
   # Wordpress version
-    cat <<EOF >> .wex
+  cat <<EOF >>.wex
 
 # Wordpress 5
 WP_DB_CHARSET=utf8                          # Database charset

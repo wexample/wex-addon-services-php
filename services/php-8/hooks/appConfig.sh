@@ -10,14 +10,14 @@ php8AppConfig() {
   local INI="${WEX_DIR_APP_TMP}php.env.ini"
   local APP_ENV=$(wex-exec app::app/env)
 
-  echo -e "\n\n\n[site]" >> "${INI}"
+  echo -e "\n\n\n[site]" >>"${INI}"
   _php8AppConfigSetValue APP_ENV "${APP_ENV}"
 
-  if [ "$(wex-exec app::service/used -s=mysql)" = "true" ] || [ "$(wex-exec app::service/used -s="mysql-8")" = "true" ] || [ "$(wex-exec app::service/used -s="maria-10")" = "true" ];then
+  if [ "$(wex-exec app::service/used -s=mysql)" = "true" ] || [ "$(wex-exec app::service/used -s="mysql-8")" = "true" ] || [ "$(wex-exec app::service/used -s="maria-10")" = "true" ]; then
     . "${WEX_FILEPATH_REL_CONFIG}"
 
-    echo -e "\n\n\n[mysql]" >> "${INI}"
-    local DEFAULT_HOST="${NAME}_$(wex-exec app::app/env)_mysql";
+    echo -e "\n\n\n[mysql]" >>"${INI}"
+    local DEFAULT_HOST="${NAME}_$(wex-exec app::app/env)_mysql"
     local DEFAULT_PASSWORD=${WEX_DEFAULT_INSECURE_PASSWORD}
 
     _php8AppConfigSetValue "MYSQL_DB_HOST" "${MYSQL_DB_HOST:-${DEFAULT_HOST}}"

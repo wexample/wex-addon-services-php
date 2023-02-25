@@ -12,7 +12,7 @@ wordpressChangeCoreArgs() {
 wordpressChangeCore() {
   _wexAppGoTo . && . "${WEX_FILEPATH_REL_CONFIG_BUILD}"
 
-   wex-exec app/exec -su -c="apt-get update && apt-get install wget zip -y"
+  wex-exec app/exec -su -c="apt-get update && apt-get install wget zip -y"
 
   local FILENAME='wordpress-'${VERSION}'.zip'
   # Download last version.
