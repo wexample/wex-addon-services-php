@@ -13,7 +13,7 @@ php8AppConfig() {
   echo -e "\n\n\n[site]" >> "${INI}"
   _php8AppConfigSetValue APP_ENV "${APP_ENV}"
 
-  if [ "$(wex-exec app::service/user -s=mysql)" = "true" ] || [ "$(wex-exec app::service/user -s="mysql-8")" = "true" ] || [ "$(wex-exec app::service/user -s="maria-10")" = "true" ];then
+  if [ "$(wex-exec app::service/used -s=mysql)" = "true" ] || [ "$(wex-exec app::service/used -s="mysql-8")" = "true" ] || [ "$(wex-exec app::service/used -s="maria-10")" = "true" ];then
     . "${WEX_FILEPATH_REL_CONFIG}"
 
     echo -e "\n\n\n[mysql]" >> "${INI}"
