@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+wordpressUpdateArgs() {
+  _DESCRIPTION="Updates WordPress"
+}
+
 wordpressUpdate() {
   _wexAppGoTo . && . "${WEX_FILEPATH_REL_CONFIG_BUILD}"
 
