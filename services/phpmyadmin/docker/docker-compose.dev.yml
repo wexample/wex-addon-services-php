@@ -1,4 +1,4 @@
-version: '3'
+version: ${DOCKER_COMPOSE_YML_VERSION}
 
 services:
     phpmyadmin:
@@ -8,3 +8,5 @@ services:
         # Avoid to type login / password on local
         environment:
             - VIRTUAL_HOST=pma.${DOMAIN_MAIN}
+            - LETSENCRYPT_HOST=pma.${DOMAIN_MAIN}
+            - LETSENCRYPT_EMAIL=${EMAIL}

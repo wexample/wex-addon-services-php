@@ -11,3 +11,6 @@ services:
         extends:
             file: ${WEX_COMPOSE_YML_DEFAULT}
             service: default
+        profiles:
+          - env_dev
+          - env_local
