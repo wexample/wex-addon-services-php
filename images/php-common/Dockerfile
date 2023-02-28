@@ -9,7 +9,6 @@ RUN apt-get update -yq && \
   apt-get update -yq && \
   apt-get install \
   apache2 \
-  composer \
   curl \
   memcached \
   mysql-client \
