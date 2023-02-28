@@ -6,5 +6,7 @@ php8AppGo() {
   if [ "${CONTAINER_NAME}" == "php_8" ]; then
     # Do not execute action but return it to be piped.
     echo "cd /var/www/html"
+  else
+    echo ":"
   fi
 }
