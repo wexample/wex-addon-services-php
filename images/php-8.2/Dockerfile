@@ -4,6 +4,7 @@ COPY ./addons/services-php/images/php-8.2/entrypoint.sh /docker-entrypoint-php8.
 
 RUN apt-get update -yq && \
   apt-get install -yq \
+  composer \
   php8.2 \
   php8.2-curl \
   php8.2-fpm \
