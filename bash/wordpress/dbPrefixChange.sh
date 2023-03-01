@@ -29,7 +29,7 @@ wordpressDbPrefixChange() {
       wex-exec prompt::prompt/progress -nl -m=${#TABLES[@]} -p=${COUNT} -s="Renaming table ${TABLE}"
 
       local QUERY="RENAME TABLE ${TABLE} TO ${NEW_PREFIX}${TABLE:${OLD_PREFIX_LENGTH}}"
-      wex-exec db/exec -vv -c="${QUERY}"
+      wex-exec db/exec -c="${QUERY}"
       ((COUNT++))
     fi
   done
@@ -41,7 +41,7 @@ wordpressDbPrefixChange() {
   for NAME in ${NAMES[@]}; do
     NAME="$(echo "${NAME}" | tr -d '\r\n')"
     local QUERY="UPDATE ${NEW_PREFIX}usermeta SET meta_key = \"${NAME:${OLD_PREFIX_LENGTH}}\" WHERE umeta_id = \"${IDS[${COUNT}]}\""
-    wex-exec db/exec -vv -c="${QUERY}"
+    wex-exec db/exec -c="${QUERY}"
     ((COUNT++))
   done
 
