@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 wordpressDbPrefixChangeArgs() {
+  _NEEDS_APP_LOCATION=true
   _DESCRIPTION="Change database prefix"
   # shellcheck disable=SC2034
   _ARGUMENTS=(
@@ -11,7 +12,7 @@ wordpressDbPrefixChangeArgs() {
 
 # Remove a prefix, do not execute twice !
 wordpressDbPrefixChange() {
-  _wexAppGoTo . && . "${WEX_FILEPATH_REL_CONFIG_BUILD}"
+  . "${WEX_FILEPATH_REL_CONFIG_BUILD}"
 
   if [ -z "${OLD_PREFIX}" ]; then
     OLD_PREFIX=${WP_DB_TABLE_PREFIX}

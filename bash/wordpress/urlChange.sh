@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 wordpressUrlChangeArgs() {
+  _NEEDS_APP_LOCATION=true
   _DESCRIPTION="Change wordpress URL in database"
   # shellcheck disable=SC2034
   _ARGUMENTS=(
@@ -10,7 +11,7 @@ wordpressUrlChangeArgs() {
 }
 
 wordpressUrlChange() {
-  _wexAppGoTo . && . "${WEX_FILEPATH_REL_CONFIG_BUILD}"
+  . "${WEX_FILEPATH_REL_CONFIG_BUILD}"
 
   # If no new url defined, use local config.
   if [ "${NEW_URL}" = "" ]; then

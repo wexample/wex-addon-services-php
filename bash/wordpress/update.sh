@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 
 wordpressUpdateArgs() {
+  _NEEDS_APP_LOCATION=true
   _DESCRIPTION="Updates WordPress"
 }
 
 wordpressUpdate() {
-  _wexAppGoTo . && . "${WEX_FILEPATH_REL_CONFIG_BUILD}"
+  . "${WEX_FILEPATH_REL_CONFIG_BUILD}"
 
   _wexLog "Wordpress : Updating addons..."
   wex-exec app/exec -n=cli -l -c="wp plugin update --all"

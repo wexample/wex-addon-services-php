@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 wordpressChangeCoreArgs() {
+  _NEEDS_APP_LOCATION=true
   # shellcheck disable=SC2034
   _DESCRIPTION="Replace WP core with another version, useful for downgrading. Let user to update database from admin."
   # shellcheck disable=SC2034
@@ -10,7 +11,7 @@ wordpressChangeCoreArgs() {
 }
 
 wordpressChangeCore() {
-  _wexAppGoTo . && . "${WEX_FILEPATH_REL_CONFIG_BUILD}"
+  . "${WEX_FILEPATH_REL_CONFIG_BUILD}"
 
   wex-exec app/exec -su -c="apt-get update && apt-get install wget zip -y"
 
