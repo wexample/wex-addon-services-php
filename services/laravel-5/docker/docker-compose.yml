@@ -2,7 +2,7 @@ services:
     laravel_5:
         container_name: '${APP_NAME_INTERNAL}_laravel_5'
         # Needs downgraded version.
-        image: 'wexample/php-7.4:latest'
+        image: 'wexample/php-8.2:latest'
         extends:
             file: ${WEX_COMPOSE_YML_PHP_8}
             service: php_8
