@@ -3,7 +3,7 @@
 laravel5AppBuild() {
   . .env
 
-  ENV_NAME="production"
+  local ENV_NAME="production"
   if [ "${APP_ENV}" != "prod" ]; then
     ENV_NAME="dev"
   fi
