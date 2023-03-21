@@ -1,9 +1,7 @@
-version: ${DOCKER_COMPOSE_YML_VERSION}
-
 services:
-    symfony_5:
-        container_name: '${APP_NAME_INTERNAL}_symfony_5'
-        image: 'wexample/symfony-5:latest'
-        extends:
-            file: ${WEX_COMPOSE_YML_PHP_8}
-            service: php_8
+  symfony_5:
+    container_name: '${APP_NAME_INTERNAL}_symfony_5'
+    image: 'wexample/symfony-5:latest'
+    extends:
+      file: ${WEX_COMPOSE_YML_PHP_8}
+      service: php_8
