@@ -1,5 +1,3 @@
-version: ${DOCKER_COMPOSE_YML_VERSION}
-
 services:
     phpmyadmin:
         extends:
