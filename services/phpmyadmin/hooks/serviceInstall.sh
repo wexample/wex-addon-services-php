@@ -8,7 +8,7 @@ phpmyadminServiceInstall() {
     local DOMAIN
     DOMAIN=$(eval 'echo ${'"${APP_ENV^^}"'_DOMAIN_PMA}')
 
-    if [ "${APP_ENV}" = "local" ]; then
+    if [ "${CONTEXT_ENV}" = "local" ]; then
       if [ "${DOMAIN_MAIN}" = '' ]; then
         DOMAIN=pma.${NAME}.wex
       else

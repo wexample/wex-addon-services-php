@@ -1,7 +1,7 @@
 services:
   symfony_5:
-    container_name: '${APP_NAME_INTERNAL}_symfony_5'
+    container_name: '${CONTEXT_NAME}_symfony_5'
     image: 'wexample/symfony-5:latest'
     extends:
-      file: ${WEX_COMPOSE_YML_PHP_8}
+      file: ${SERVICE_PHP_8_YML_ENV}
       service: php_8

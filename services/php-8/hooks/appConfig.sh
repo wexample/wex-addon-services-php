@@ -11,7 +11,7 @@ php8AppConfig() {
   local APP_ENV=$(wex-exec app::app/env)
 
   echo -e "\n\n\n[site]" >>"${INI}"
-  _php8AppConfigSetValue APP_ENV "${APP_ENV}"
+  _php8AppConfigSetValue APP_ENV "${CONTEXT_ENV}"
 
   if [ "$(wex-exec app::service/used -s=mysql)" = "true" ] || [ "$(wex-exec app::service/used -s="mysql-8")" = "true" ] || [ "$(wex-exec app::service/used -s="maria-10")" = "true" ]; then
     . "${WEX_FILEPATH_REL_CONFIG}"

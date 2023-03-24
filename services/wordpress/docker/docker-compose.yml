@@ -1,11 +1,11 @@
 services:
     wordpress:
-        container_name: '${APP_NAME_INTERNAL}_wordpress'
+        container_name: '${CONTEXT_NAME}_wordpress'
         image: wordpress:6.1.1-php8.2-apache
         expose:
             - 80
         environment:
-            - VIRTUAL_HOST=${DOMAINS}
+            - VIRTUAL_HOST=${CONTEXT_DOMAINS}
             - VIRTUAL_PORT=80
             # Database
             - WORDPRESS_DB_HOST=${MYSQL_DB_HOST}
@@ -17,16 +17,16 @@ services:
             #- WORDPRESS_CONFIG_EXTRA=
         volumes:
             # Wordpress
-            - ${APP_PATH_ROOT}:/var/www/html
+            - ${CONTEXT_DIR}:/var/www/html
             # Security ! Hide and .wex data containing passwords and databases !
             - /var/www/html/.wex
         extends:
-            file: ${WEX_COMPOSE_YML_DEFAULT}
+            file: ${SERVICE_DEFAULT_YML_ENV}
             service: default
 
     # From : https://stackoverflow.com/a/51001043
     cli:
-        container_name: '${APP_NAME_INTERNAL}_cli'
+        container_name: '${CONTEXT_NAME}_cli'
         image: wordpress:cli-2.7.1-php8.2
         environment:
             # Database
@@ -37,10 +37,10 @@ services:
             - WORDPRESS_TABLE_PREFIX=${WP_DB_TABLE_PREFIX}
         volumes:
             # Wordpress
-            - ${APP_PATH_ROOT}:/var/www/html
+            - ${CONTEXT_DIR}:/var/www/html
             # Security ! Hide and .wex data containing passwords and databases !
             - /var/www/html/.wex
-            - ${APP_PATH_WEX}wp-cli/:/.wp-cli/
+            - ${CONTEXT_DIR_WEX}wp-cli/:/.wp-cli/
         extends:
-            file: ${WEX_COMPOSE_YML_DEFAULT}
+            file: ${SERVICE_DEFAULT_YML_ENV}
             service: default

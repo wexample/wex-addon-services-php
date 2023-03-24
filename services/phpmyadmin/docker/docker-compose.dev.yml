@@ -1,10 +1,10 @@
 services:
     phpmyadmin:
         extends:
-            file: ${WEX_COMPOSE_YML_PHPMYADMIN_BASE}
+            file: ${SERVICE_PHPMYADMIN_YML_BASE}
             service: phpmyadmin
         # Avoid to type login / password on local
         environment:
             - VIRTUAL_HOST=pma.${DOMAIN_MAIN}
             - LETSENCRYPT_HOST=pma.${DOMAIN_MAIN}
-            - LETSENCRYPT_EMAIL=${EMAIL}
+            - LETSENCRYPT_EMAIL=${CONTEXT_EMAIL}

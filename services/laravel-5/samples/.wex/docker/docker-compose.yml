@@ -1,7 +1,7 @@
 services:
   laravel_5:
     extends:
-      file: ${WEX_COMPOSE_YML_LARAVEL_5}
+      file: ${SERVICE_LARAVEL_5_YML_ENV}
       service: laravel_5
     depends_on:
-      - ${APP_NAME}_mysql-8
+      - ${GLOBAL_NAME}_mysql-8

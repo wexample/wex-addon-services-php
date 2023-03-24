@@ -1,7 +1,7 @@
 services:
     phpmyadmin:
         extends:
-            file: ${WEX_COMPOSE_YML_PHPMYADMIN_BASE}
+            file: ${SERVICE_PHPMYADMIN_YML_BASE}
             service: phpmyadmin
         # Avoid to type login / password on local
         environment:

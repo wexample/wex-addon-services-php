@@ -1,6 +1,6 @@
 services:
     phpmyadmin:
-        container_name: '${APP_NAME_INTERNAL}_phpmyadmin'
+        container_name: '${CONTEXT_NAME}_phpmyadmin'
         image: phpmyadmin/phpmyadmin:5.2
         environment:
           - LETSENCRYPT_EMAIL=${EMAIL}
@@ -9,7 +9,7 @@ services:
           - PMA_PORT=${MYSQL_DB_PORT}
           - VIRTUAL_HOST=${DOMAIN_PMA}
         extends:
-            file: ${WEX_COMPOSE_YML_DEFAULT}
+            file: ${SERVICE_DEFAULT_YML_ENV}
             service: default
         profiles:
           - env_dev

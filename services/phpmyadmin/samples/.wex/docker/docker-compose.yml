@@ -1,7 +1,7 @@
 services:
   phpmyadmin:
     extends:
-      file: ${WEX_COMPOSE_YML_PHPMYADMIN}
+      file: ${SERVICE_PHPMYADMIN_YML_ENV}
       service: phpmyadmin
     links:
-      - ${APP_NAME}_mysql-8
+      - ${GLOBAL_NAME}_mysql-8

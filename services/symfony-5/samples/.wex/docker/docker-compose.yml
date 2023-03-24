@@ -1,5 +1,5 @@
 services:
   symfony_5:
     extends:
-      file: ${WEX_COMPOSE_YML_SYMFONY_5}
+      file: ${SERVICE_SYMFONY_5_YML_ENV}
       service: symfony_5

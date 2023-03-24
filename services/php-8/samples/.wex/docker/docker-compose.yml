@@ -1,5 +1,5 @@
 services:
   php_8:
     extends:
-      file: ${WEX_COMPOSE_YML_PHP_8}
+      file: ${SERVICE_PHP_8_YML_ENV}
       service: php_8
